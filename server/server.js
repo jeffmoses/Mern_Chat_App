@@ -14,6 +14,12 @@ dotenv.config();
 const connectDB = require('./config/db');
 connectDB();
 
+// CORS allowed origins
+const allowedOrigins = [
+  process.env.CLIENT_URL || 'http://localhost:5173', // Vercel and local client
+  'https://mern-chat-app-o7l1.onrender.com' // Your own Render URL (optional, but sometimes needed)
+];
+
 // Import controllers
 const {
   registerUser,
@@ -46,7 +52,17 @@ const io = new Server(server, {
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
