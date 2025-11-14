@@ -60,23 +60,25 @@ const ChatPage = () => {
         </div>
       </div>
 
-      <div className="chat-container">
-        <div className="sidebar">
-          <div className="rooms-section">
-            <h3>Rooms</h3>
-            <div className="rooms-list">
-              {availableRooms.map((room) => (
-                <button
-                  key={room}
-                  className={`room-btn ${selectedRoom === room ? 'active' : ''}`}
-                  onClick={() => handleRoomChange(room)}
-                >
-                  #{room}
-                </button>
-              ))}
-            </div>
+      <div className="rooms-bar">
+        <div className="rooms-section">
+          <h3>Rooms</h3>
+          <div className="rooms-list">
+            {availableRooms.map((room) => (
+              <button
+                key={room}
+                className={`room-btn ${selectedRoom === room ? 'active' : ''}`}
+                onClick={() => handleRoomChange(room)}
+              >
+                #{room}
+              </button>
+            ))}
           </div>
+        </div>
+      </div>
 
+      <div className="chat-container">
+        <div className="users-sidebar">
           <UserList users={users} />
         </div>
 

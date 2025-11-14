@@ -1,5 +1,6 @@
 // socket/socketHandler.js - Socket.io event handlers
 
+const jwt = require('jsonwebtoken');
 const Message = require('../models/Message');
 const User = require('../models/User');
 
@@ -36,21 +37,34 @@ const handleConnection = (io, socket) => {
     try {
       const { room, token } = data;
 
-      // Here you would verify the JWT token to get user info
-      // For now, we'll assume the token is valid and contains userId
-      // In a real app, you'd decode the token and get user from DB
+      // Verify JWT token
+      if (!token) {
+        return socket.emit('error', { message: 'No token provided' });
+      }
 
-      // For demo purposes, we'll use a mock user
-      // In production, decode token and fetch user from DB
-      const mockUser = {
-        userId: 'mock-user-id',
-        username: 'MockUser',
-        avatar: '',
+      let decoded;
+      try {
+        decoded = jwt.verify(token, process.env.JWT_SECRET);
+      } catch (err) {
+        return socket.emit('error', { message: 'Invalid token' });
+      }
+
+      // Fetch user from database
+      const user = await User.findById(decoded.id).select('-password');
+      if (!user) {
+        return socket.emit('error', { message: 'User not found' });
+      }
+
+      // Use real user data
+      const userData = {
+        userId: user._id.toString(),
+        username: user.username,
+        avatar: user.avatar,
       };
 
       // Store user data
       activeUsers.set(socket.id, {
-        ...mockUser,
+        ...userData,
         room,
         socketId: socket.id,
       });
@@ -74,14 +88,14 @@ const handleConnection = (io, socket) => {
 
       // Notify others in the room
       socket.to(room).emit('userJoined', {
-        user: mockUser,
-        message: `${mockUser.username} joined the room`,
+        user: userData,
+        message: `${userData.username} joined the room`,
       });
 
       // Update user list for all in room
       io.to(room).emit('userList', getUsersInRoom(room));
 
-      console.log(`${mockUser.username} joined room: ${room}`);
+      console.log(`${userData.username} joined room: ${room}`);
     } catch (error) {
       console.error('Join room error:', error);
       socket.emit('error', { message: 'Failed to join room' });
