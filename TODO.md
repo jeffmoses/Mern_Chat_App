@@ -1,5 +1,5 @@
-# TODO for Chat Interface Layout Update
+# Theme Change Plan
 
-- [x] Edit ChatPage.jsx to restructure layout: move rooms to top bar after header, place UserList on left, chat messages on right
-- [x] Edit Chat.css to adjust styles for new layout: sidebar for UserList only, add top rooms section styles
-- [x] Test the layout to ensure online users are on left and messages on right
+- [x] Update client/src/index.css: Change body background to #FFF8DC (cream), chat-header to #003366 (dark blue), users-list and other backgrounds to #FFFFFF (milk white).
+- [x] Update client/src/components/ChatWindow.css: Change own-message background to #003366, other-message to #FFFFFF, system-message to #FFF8DC, adjust text colors for contrast.
+- [x] Run the app to verify the theme changes.
