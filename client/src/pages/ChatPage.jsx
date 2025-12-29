@@ -42,7 +42,7 @@ const ChatPage = () => {
     setSelectedRoom(room);
   };
 
-  const availableRooms = ['general', 'random', 'tech', 'gaming'];
+  const availableRooms = ['general', 'mern', 'tech', 'gaming','newbies'];
 
   return (
     <div className="chat-page">

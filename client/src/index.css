@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #FFF8DC;
   color: #333;
   line-height: 1.6;
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .chat-header {
-  background-color: #007bff;
+  background-color: #003366;
   color: white;
   padding: 1rem;
   display: flex;
@@ -78,7 +78,7 @@ body {
 
 .users-list {
   width: 250px;
-  background-color: #f8f9fa;
+  background-color: #FFFFFF;
   border-right: 1px solid #dee2e6;
   padding: 1rem;
   overflow-y: auto;
@@ -102,7 +102,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #FFFFFF;
 }
 
 .messages-container {
@@ -151,7 +151,7 @@ body {
   display: flex;
   padding: 1rem;
   border-top: 1px solid #dee2e6;
-  background-color: #f8f9fa;
+  background-color: #FFFFFF;
 }
 
 .message-form input {
@@ -163,21 +163,21 @@ body {
 }
 
 .message-form input:focus {
-  border-color: #007bff;
+  border-color: #003366;
 }
 
 .message-form button {
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
+  background-color: #003366;
   color: white;
-  border: 1px solid #007bff;
+  border: 1px solid #003366;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .message-form button:hover {
-  background-color: #0056b3;
+  background-color: #003366;
 }
 
 /* Join Form Styles */
@@ -186,11 +186,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #FFF8DC;
 }
 
 .join-form {
-  background-color: white;
+  background-color: #FFFFFF;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -201,7 +201,7 @@ body {
 
 .join-form h1 {
   margin-bottom: 1.5rem;
-  color: #007bff;
+  color: #003366;
 }
 
 .join-form form {
@@ -219,12 +219,12 @@ body {
 }
 
 .join-form input:focus {
-  border-color: #007bff;
+  border-color: #003366;
 }
 
 .join-form button {
   padding: 0.75rem;
-  background-color: #007bff;
+  background-color: #003366;
   color: white;
   border: none;
   border-radius: 4px;
@@ -234,7 +234,7 @@ body {
 }
 
 .join-form button:hover {
-  background-color: #0056b3;
+  background-color: #003366;
 }
 
 /* Responsive Design */

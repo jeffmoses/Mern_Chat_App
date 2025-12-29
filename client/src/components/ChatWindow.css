@@ -4,7 +4,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: #f8f9fa;
+  background: #FFFFFF;
   overflow: hidden;
 }
 
@@ -45,11 +45,11 @@
 
 .system-message {
   align-self: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: #FFF8DC;
   border-radius: 15px;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #333;
   border: 1px solid #e1e1e1;
 }
 
@@ -59,14 +59,14 @@
 
 .own-message {
   align-self: flex-end;
-  background: #667eea;
+  background: #003366;
   color: white;
   border-radius: 15px 15px 5px 15px;
 }
 
 .other-message {
   align-self: flex-start;
-  background: white;
+  background: #FFFFFF;
   color: #333;
   border-radius: 15px 15px 15px 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -94,6 +94,7 @@
   padding: 0 1rem 0.5rem;
   word-wrap: break-word;
   white-space: pre-wrap;
+  color: #000;
 }
 
 .private-indicator {

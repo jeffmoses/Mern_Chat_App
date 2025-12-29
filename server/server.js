@@ -17,7 +17,7 @@ connectDB();
 // CORS allowed origins
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173', // Vercel and local client
-  'https://mern-chat-app-o7l1.onrender.com' // Your own Render URL (optional, but sometimes needed)
+   // Your own Render URL (optional, but sometimes needed)
 ];
 
 // Import controllers
